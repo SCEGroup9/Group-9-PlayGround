@@ -28,7 +28,7 @@ body{
 
 .login-popup-heading>h4 {
     color: #258b47;
-    font-size: 26px;
+    font-size: 22px;
     line-height: 30px;
 }
 .new_reg_popup, .new_login_popup {
@@ -47,7 +47,7 @@ body{
     height: 38px;
     line-height: 28px;
     margin: 20px auto 5px;
-    width: 250px;
+    width: 150px;
     cursor: pointer;
 }
 a{
@@ -59,7 +59,7 @@ a{
 ul {
     position: relative;
     left:-145%;
-    top:-335px;
+    top:-400px;
     list-style-type: none;
     margin: 22;
     padding: 0;

@@ -1,25 +1,31 @@
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
+    session_start();
+    //Connect
+    $db1 = mysqli_connect("sql102.epizy.com","epiz_23059576","34821317","epiz_23059576_DB");
+    $db2 = mysqli_connect("sql102.epizy.com","epiz_23059576","34821317","epiz_23059576_DB");
 
-$con = mysqli_connect($servername,$username,$password,"game1");
-if($con){
-    // echo "Connected successfully";
-}
+    if(isset($_POST['register'])){
+        $FirstName	 = $_POST['FirstName'];
+        $LastName = $_POST['LastName'];
+        $Age = $_POST['Age'];
+        $Country = $_POST['Country'];
+        $username = $_POST['username'];
+        $psw = $_POST['psw'];
+        $pswr = $_POST['pswr'];
 
-// $query = "SELECT * FROM accounts";
-// $res = mysqli_query($con, $query);
-// while($r = mysqli_fetch_array($res)){
-//     echo $r["name"];
-// }
-session_start();
-
-if(isset($_GET["logout"])){
-    session_unset();
-    session_destroy();
-    header("location:LoginU.php"); 
-    exit();
-}
-
+        if ($psw == $pswr) {
+            $sql = "INSERT INTO Users(FirstName, LastName, Age, Country, username, psw, pswr) 
+                      VALUES('$FirstName', '$LastName', '$Age', '$Country', '$username', '$psw', '$pswr')";
+            mysqli_query($db1, $sql);
+            $sql1= "INSERT INTO Users1(FirstName, username, psw, rnk) VALUES ('$FirstName','$username','$psw',1)";
+            mysqli_query($db2, $sql1);
+            $_SESSION['username'] = $username;
+            header('location: /Html/LoginU.php');
+        }
+        else {
+            ?>
+                <script>window.alert("Passwords not match");</script>
+            <?php
+        }
+    }
 ?>
