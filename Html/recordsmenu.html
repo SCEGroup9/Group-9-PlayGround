@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Recordsmenu</title>
+    <link rel="stylesheet" href="/Css/recordsmenu.css">
+    <body> 
+        <div class="rec-page">
+        <div class="form">
+            <button class="button button1" onclick="Redirect()">Personal Records</button>
+            <script type="text/javascript">
+                function Redirect() {
+                    window.location="/Html/persrec.html";
+                }
+            </script>
+            <button class="button button2" onclick="Redirect1()">Global Records</button>
+            <script type="text/javascript">
+                function Redirect1() {
+                    window.location="/Html/globrec.php";
+                }
+            </script>
+            <ul>
+                <li><a class="active" href="/Html/Home.html">Home</a></li>
+                <li><a onclick="goBack()">Back</a></li>
+                <li><a href="/Html/contact.php">Contact Us</a></li>
+				<li><a href="/Html/about.html">About</a></li>
+          	</ul>
+            <script>
+                function goBack() {
+                    window.history.back();
+                }
+            </script>
+        </div>    
+        </div>
+    </body>
+</head>
+</html>
