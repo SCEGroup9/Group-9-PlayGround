@@ -1,0 +1,88 @@
+body , html{
+    transition: 1s ease-in-out;
+    width: 100%;
+    height : 100%;
+    margin : 0 0;
+    padding: 0  0;   
+    /* background-image: url("https://previews.123rf.com/images/ponsulak/ponsulak1201/ponsulak120100164/12204453-artificial-green-grass-turf-background.jpg"); */
+    
+    
+   
+    
+}
+/* .title{
+    font-family: Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif; 
+    font-size: 130px;
+    text-align: center;
+    top:5%;
+
+} */
+.score{
+    font-family: sans-serif;
+    background-color: azure;
+    border-color: black;
+    border: 0.5%;
+    text-align: center;
+    
+}
+
+
+.table{
+  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tS3cFZSacjdXH9wwk4_3CiSklBOKMg0Y32FdLtcDqdFXSBw");   */
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width:600px;
+  height:600px;
+  
+}
+
+.bsquare{
+    float: left;
+    width: 75px;
+    height: 75px;
+    background: rgb(90, 79, 79);
+    text-align: center;
+    position: relative;
+    
+
+}
+
+
+.wsquare{
+    float: left;
+    width: 75px;
+    height: 75px;
+    background: rgb(245, 253, 255);
+    position: relative;
+  
+}
+
+.clear_float{
+	clear: both;
+}
+
+.wpiece{
+    float:left;
+    border-radius: 50%;
+    background-color: rgb(231, 207, 207);
+    width: 75px;
+    height: 75px;
+    position: relative;
+}
+
+.bpiece{
+    top:150px;
+    float:left;
+    border-radius: 50%;
+    background-color: red;
+    width: 75px;
+    height: 75px;
+    position: relative;
+}
+.space{
+    float:left;
+    width: 75px;
+    height: 75px;
+    position: relative;
+}
