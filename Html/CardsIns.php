@@ -7,14 +7,26 @@
 <div class="ab">
 <h3> Cards Instruction: </h3>
 <?php 
-    include 'CheckerInstruction.php';
+    include 'CardsInstruction.php';
     echo "$GameData";
-?></div>
-            <ul>
-            <li><a class="active" href="/Html/Home.html">Home</a></li>
-            <li><a href="">Back</a></li>
-            <li><a href="/Html/contact.html">Contact Us</a></li>
-        </ul>
-
+    
+?>
+<h3> Points: </h3>
+<?php 
+    include 'CardsInstruction.php';
+    echo "$Points";
+?>
+</div>
+<ul>
+    <li><a class="active" href="/Html/Home.html">Home</a></li>
+    <li><a onclick="goBack()">Back</a></li>
+    <li><a href="/Html/contact.php">Contact Us</a></li>
+    <li><a href="/Html/about.html">About</a></li>
+</ul>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 </body>
 </html>
