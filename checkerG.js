@@ -2,11 +2,32 @@ var bsquares=document.getElementsByClassName("bsquare");
 var wpiece=document.getElementsByClassName("wpiece");
 var bpiece=document.getElementsByClassName("bpiece");
 var clickcounters=new Array(24);
+var Xpositions=new Array(24);
+var Ypositions=new Array(24);
 var curpiece;
 
+fillArr(Ypositions);
+fillArr(Xpositions);
+fillArr(clickcounters);
+updateBP(Ypositions);
 
-fillcount(clickcounters);
+var cubecolumn;
+var cuberow;
 
+function func(e){console.log(e);
+    var xp = e.clientX;
+    var yp = e.clientY;
+    cubecolumn =Math.floor(xp/75);
+    cuberow =Math.floor(yp/75);
+    var coor = "X coords: " + cubecolumn + ", Y coords: " + cuberow;
+    // console.log(coor);
+    if(xp>600 || yp>600) return;
+    if(!checkblack(cubecolumn,cuberow)) return;
+    movepiece();
+}
+
+
+document.addEventListener('click',func,true);
 
 
 
@@ -16,7 +37,7 @@ function myFunc(id){
     clickcounters[ids]++;
     if(clickcounters[ids]>=2) clickcounters[ids]=0;
 
-    // console.log(clickcounters);
+    console.log(clickcounters);
     if(checklight(clickcounters,ids)!= -1){
         j=checklight(clickcounters,ids);
         // console.log(j);
@@ -34,62 +55,70 @@ function myFunc(id){
     }
     if(ids>=12){
         ids-=12;
-        curpiece=x=bpiece[ids];
-       
+        curpiece=bpiece[ids];
         if(clickcounters[ids+12]==0){ 
-            x.style.backgroundColor="red";
-            if(ids>3&&ids<8){
-                if(!pieceExist(bsquares[ids+16])&& x.offsetLeft!=0 && x.offsetTop!=0)bsquares[ids+16].style.backgroundColor="rgb(90, 79, 79)";
-                if(!pieceExist(bsquares[ids+17])&& x.offsetLeft!=525 && x.offsetTop!=0) bsquares[ids+17].style.backgroundColor="rgb(90, 79, 79)";
-            }
-            else{
-                if(!pieceExist(bsquares[ids+15])&& x.offsetLeft!=0 && x.offsetTop!=0)bsquares[ids+15].style.backgroundColor="rgb(90, 79, 79)";
-                if(!pieceExist(bsquares[ids+16])&& x.offsetLeft!=525 && x.offsetTop!=0) bsquares[ids+16].style.backgroundColor="rgb(90, 79, 79)";        
-            }
+            curpiece.style.backgroundColor="red";
+            cleangreen();
         }
         else{
-            x.style.backgroundColor="green";
-            if(ids>3&&ids<8){
-                if(!pieceExist(bsquares[ids+16])&& x.offsetLeft!=0 && x.offsetTop!=0)bsquares[ids+15].style.backgroundColor="green";
-                if(!pieceExist(bsquares[ids+17])&& x.offsetLeft!=525 && x.offsetTop!=0)bsquares[ids+16].style.backgroundColor="green";
-        
-            }
-            else{
-                if(!pieceExist(bsquares[ids+15])&& x.offsetLeft!=0 && x.offsetTop!=0)bsquares[ids+15].style.backgroundColor="green";
-                if(!pieceExist(bsquares[ids+16])&& x.offsetLeft!=525 && x.offsetTop!=0)bsquares[ids+16].style.backgroundColor="green";
-            } 
+            curpiece.style.backgroundColor="green";
+            Blightcube();
         }
     }
     else{
-        curpiece=x=wpiece[ids];
+        curpiece= wpiece[ids];
         if(clickcounters[ids]==0){
-            x.style.backgroundColor="rgb(231, 207, 207)";
-            if(ids>3&&ids<8){
-                if(!pieceExist(bsquares[ids+3]) && x.offsetLeft!=0 && x.offsetTop!=525) bsquares[ids+3].style.backgroundColor="rgb(90, 79, 79)";
-                if(!pieceExist(bsquares[ids+4])&& x.offsetLeft!=525 && x.offsetTop!=525) bsquares[ids+4].style.backgroundColor="rgb(90, 79, 79)";
-        
-            }
-            else{
-                if(!pieceExist(bsquares[ids+4]) && x.offsetLeft!=0 && x.offsetTop!=525) bsquares[ids+4].style.backgroundColor="rgb(90, 79, 79)";
-                if(!pieceExist(bsquares[ids+5])&& x.offsetLeft!=525 && x.offsetTop!=525) bsquares[ids+5].style.backgroundColor="rgb(90, 79, 79)";
-
-            }
+            curpiece.style.backgroundColor="rgb(231, 207, 207)";
+            cleangreen();
         }
         else{
-            x.style.backgroundColor="green";
-            if(ids>3&&ids<8){
-                if(!pieceExist(bsquares[ids+3])&& x.offsetLeft!=0 && x.offsetTop!=525) bsquares[ids+3].style.backgroundColor="green";
-                if(!pieceExist(bsquares[ids+4])&& x.offsetLeft!=525 && x.offsetTop!=525) bsquares[ids+4].style.backgroundColor="green";
-            }
-            else{
-                if(!pieceExist(bsquares[ids+4])&& x.offsetLeft!=0 && x.offsetTop!=525) bsquares[ids+4].style.backgroundColor="green";
-                if(!pieceExist(bsquares[ids+5])&& x.offsetLeft!=525 && x.offsetTop!=525) bsquares[ids+5].style.backgroundColor="green";
-            }
+            curpiece.style.backgroundColor="green";
+            Wlightcube();
         }
     }
 }
 
-function fillcount(array){
+
+function Blightcube(){
+    var leftsqindex=findSq(cubecolumn-1,cuberow-1);
+    var rightsqindex=findSq(cubecolumn+1,cuberow-1);
+    console.log("here");
+    if(leftsqindex== -1 && rightsqindex== -1) return;
+    console.log(leftsqindex,rightsqindex);
+    if(leftsqindex!= -1){
+        if(!pieceExist(bsquares[leftsqindex]))bsquares[leftsqindex].style.backgroundColor="green";
+    
+    } 
+    if(rightsqindex!= -1){
+        if(!pieceExist(bsquares[rightsqindex])) bsquares[rightsqindex].style.backgroundColor="green";
+    }
+       
+}
+
+function Wlightcube(){
+    var leftsqindex=findSq(cubecolumn-1,cuberow+1);
+    var rightsqindex=findSq(cubecolumn+1,cuberow+1);
+    if(leftsqindex== -1 && rightsqindex== -1) return;
+    console.log(leftsqindex,rightsqindex);
+    if(leftsqindex!= -1){
+        if(!pieceExist(bsquares[leftsqindex]))bsquares[leftsqindex].style.backgroundColor="green";
+    
+    } 
+    if(rightsqindex!= -1){
+        if(!pieceExist(bsquares[rightsqindex])) bsquares[rightsqindex].style.backgroundColor="green";
+    }
+       
+}
+
+function cleangreen(){
+    var i=0;
+    for(i=0;i<32;i++){
+        var curcolor= bsquares[i].style.backgroundColor;
+        if(curcolor=="green") bsquares[i].style.backgroundColor="rgb(90, 79, 79)";
+    }
+}
+
+function fillArr(array){
     var i=0;
     for(i=0;i<array.length;i++){
         array[i]=0;
@@ -117,8 +146,80 @@ function pieceExist(el){
     return false;
 }
 
-function movepiece(id){ 
-    var ids=parseInt(id);
-    console.log(ids);
-
+function updateBP(arr){
+    var i=12;
+    for(i;i<24;i++){
+        arr[i]=150;
+    }
 }
+
+
+function movepiece(){ 
+    var curCube =bsquares[findSq(cubecolumn,cuberow)];
+    var leftpos= curpiece.offsetLeft/75;
+    var toppos = curpiece.offsetTop/75;
+    var ids=parseInt(curpiece.id)-1;
+    // if(ids>11) moveblack(ids,curCube);
+    if(curCube.style.backgroundColor=='green'){
+        if(leftpos+1==cubecolumn && toppos-1==cuberow){
+            Xpositions[ids]+=75;
+            Ypositions[ids]-=75;
+            console.log(Ypositions[ids]);
+            curpiece.style.left= Xpositions[ids] + 'px';
+            curpiece.style.top= Ypositions[ids] + 'px';
+            curpiece.style.backgroundColor='red';
+            clickcounters[ids]--;
+        }
+        else if(leftpos-1==cubecolumn && toppos-1==cuberow){
+            Xpositions[ids]-=75;
+            Ypositions[ids]-=75;
+            console.log(Xpositions[ids],Ypositions[ids]);
+            curpiece.style.left= Xpositions[ids] + 'px';
+            curpiece.style.top= Ypositions[ids] + 'px';
+            curpiece.style.backgroundColor='red';
+            clickcounters[ids]--;
+        }
+        else if(leftpos+1==cubecolumn && toppos+1==cuberow){
+            Xpositions[ids]+=75;
+            Ypositions[ids]+=75;
+            curpiece.style.left= Xpositions[ids] + 'px';
+            curpiece.style.top= Ypositions[ids] + 'px';
+            curpiece.style.backgroundColor='rgb(231, 207, 207)';
+            clickcounters[ids]--;
+        }
+        else if(leftpos-1==cubecolumn && toppos+1==cuberow){
+            Xpositions[ids]-=75;
+            Ypositions[ids]+=75;
+            curpiece.style.left= Xpositions[ids] + 'px';
+            curpiece.style.top= Ypositions[ids] + 'px';
+            curpiece.style.backgroundColor='rgb(231, 207, 207)';
+            clickcounters[ids]--;
+        }
+    }
+    cleangreen();
+}
+function checkblack(column,row){
+    if(row%2==0){
+        if(column%2!=0) return true;
+        return false;
+    }
+    else{
+        if(column%2==0) return true;
+        return false;
+    }
+}
+
+function findSq(xpos,ypos){
+    var index=0;
+    var cursq;
+  
+    if(xpos<0||ypos<0||xpos>7||ypos>7) return -1;
+    for(index=0;index<32;index++){
+        cursq=bsquares[index];
+        if(cursq.offsetLeft==xpos*75 && cursq.offsetTop==ypos*75) return index;
+    }
+    
+    return -1;
+}
+
+
