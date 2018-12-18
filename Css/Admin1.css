@@ -1,0 +1,162 @@
+body{
+    background-image: url(/pic/login.jpg);
+    height: 70%;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-page{
+    width: 300px;
+    padding: 20% 0 0;
+    margin: auto;
+}
+
+.form{
+    position: absolute;
+    left: 405px;
+    top: 165px;
+    bottom: 5px;
+    z-index: 5;
+    border-radius: 50%;
+    background-image: url(/pic/play1.png);
+    width: 630px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+}
+
+.UD {
+    background-color: #4CAF50; 
+    position: relative;
+    left: -25px;
+    top: 50px;
+    width: 150px;
+    border: none;
+    color: white;
+    padding: 16px 20px;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.UD {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+.UD:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.rule {
+    background-color: #4CAF50; 
+    position: relative;
+    left: -10px;
+    top: 50px;
+    border: none;
+    color: white;
+    padding: 16px 25px;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.rule {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+.rule:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.report {
+    background-color: #4CAF50; 
+    position: relative;
+    left: 5px;
+    top: 50px;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.report {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+.report:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.hit {
+    background-color: #4CAF50; 
+    position: relative;
+    left: 20px;
+    top: 50px;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.hit {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+.hit:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+a{
+    color: #258b47;
+    font-size: 18px;
+}
+
+
+ul {
+   position: absolute;
+   left:10;
+   top:0;
+   list-style-type: none;
+   width: 734px;
+   padding: 0;
+   overflow: hidden;
+   background-color: #333;
+}
+
+li {
+   float: left;
+   border-right:1px solid #bbb;
+}
+
+li:last-child {
+   border-right: none;
+}
+
+li a {
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+}
+
+li a:hover {
+   background-color: #111;
+}
+
+.active {
+   background-color: #258b47;
+}
+
+.logt{
+   background-color: #910505;
+}

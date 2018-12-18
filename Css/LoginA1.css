@@ -22,13 +22,13 @@ body{
     border-radius: 50%;
     width: 720px;
     margin: 0 auto 100px;
-    padding: 40px;
+    padding: 45px;
     text-align: center;
 }
 
 .login-popup-heading>h4 {
     color: #258b47;
-    font-size: 22px;
+    font-size: 26px;
     line-height: 30px;
 }
 .new_reg_popup, .new_login_popup {
@@ -57,11 +57,11 @@ a{
 
 
 ul {
-    position: relative;
-    left:-145%;
-    top:-495px;
+    position: absolute;
+    left:10;
+    top:10;
     list-style-type: none;
-    margin: 22;
+    width: 734px;
     padding: 0;
     overflow: hidden;
     background-color: #333;
@@ -84,10 +84,14 @@ li a {
     text-decoration: none;
 }
 
-li a:hover:not(.active) {
+li a:hover {
     background-color: #111;
 }
 
 .active {
     background-color: #258b47;
+}
+
+.logt{
+    background-color: #910505;
 }

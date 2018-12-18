@@ -1,0 +1,116 @@
+
+.icard{
+  position: absolute;
+  padding: 10px;
+  height: 200px;
+  width: 150px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: white;
+  display: inline-block;
+  top: 20px;
+}
+
+.cardtop {
+  font-size: 2em;
+  height: 40px;
+  line-height: 0.7em;
+}
+.cardmid {
+  text-align: center;
+  font-size: 6.5em;
+  height: 110px;
+}
+.cardbottom {
+  font-size: 2em;
+  height: 50px;
+  line-height: 0.7em;
+  transform: rotate(-180deg); 
+}
+
+.hearts .suit::after{ content: '\2665';}
+.spades .suit::after{ content: '\2660';}
+.clubs .suit::after{ content: '\2663';}
+.diams .suit::after{ content: '\2666';}
+
+.spades, .clubs{color: black;}
+.hearts, .diams{color: red;}
+
+.hand {
+  position: relative;
+}
+.players{
+  float: left;
+  width: 49%;
+  min-height: 300px;
+  border: 1px solid lightgrey;
+}
+.score{
+  font-size: 1.5em;
+}
+#message{
+  font-size: 1.2em;
+  text-align: center;
+  color: white;
+  background-color: black;
+  padding: 10px;
+}
+.btn{
+  position: relative; 
+  left : 695px;
+  top:20px;
+  border-radius: 5px;
+  padding: 9px 20px;
+  color: white;
+  display: inline-flex;
+  text-align: center;
+  font-size: 1.5em;
+  text-shadow: 1px 1px #000;
+}
+#btnBattle{
+  background-color: red;
+}
+
+.btn1{
+  position: relative; 
+  left : 683px;
+  top:40px;
+  border-radius: 5px;
+  padding: 9px 20px;
+  color: white;
+  display: inline-flex;
+  text-align: center;
+  font-size: 1.5em;
+  text-shadow: 1px 1px #000;
+  background-color: blue;
+
+}
+
+.btn2{
+  position: relative; 
+  left : 696px;
+  top:60px;
+  border-radius: 5px;
+  padding: 9px 20px;
+  color: white;
+  display: inline-flex;
+  text-align: center;
+  font-size: 1.5em;
+  text-shadow: 1px 1px #000;
+  background-color: green;
+
+}
+
+.btn3{
+  position: relative; 
+  left : 638px;
+  top:80px;
+  border-radius: 5px;
+  padding: 22px 109px;
+  color: white;
+  display: inline-flex;
+  text-align: center;
+  font-size: 1.5em;
+  text-shadow: 1px 1px #000;
+  background-image: url(/pic/share.png)
+}

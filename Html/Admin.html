@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" href="/Css/Admin.css">
+    <link rel="stylesheet" href="/Css/Admin1.css">
     <body> 
         <div class="login-page">
         <div class="form">
@@ -21,23 +21,28 @@
         <button class="report" onclick="Redirect2()">Users Reports</button>
         <script type="text/javascript">
             function Redirect2() {
-                window.location="";
+                window.location="/Html/report.php";
             }
         </script>
         <button class="hit" onclick="Redirect3()">Users Hits</button>
             <script type="text/javascript">
                 function Redirect3() {
-                    window.location="";
+                    window.location="/Html/enters.php";
                 }
             </script>
         </div>    
         </div>
+        <div>
         <ul>
             <li><a class="active" href="/Html/Home.html">Home</a></li>
-            <li><a href="/Html/LoginA.php">Back</a></li>
-            <li><a href="/Html/contact.html">Contact Us</a></li>
+            <li><a href="/Html/Home.html">Back</a></li>
+            <li><a href="/Html/delete.php">Delete account</a></li>
+            <li><a href="https://www.walla.co.il">Walla! portal</a></li>
+            <li><a href="/Html/contact.php">Contact Us</a></li>
             <li><a href="/Html/about.html">About</a></li>
+            <li><a class="logt" name="logt" href="logout.php">Log out</a></li>
         </ul>
+        </div>
     </body>
 </head>
 </html>

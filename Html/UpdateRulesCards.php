@@ -1,7 +1,7 @@
 <html>
    <head>
       <title>Update Cards Rules</title>
-      <link rel="stylesheet" href="/Css/UpdateRules2.css">
+      <link rel="stylesheet" href="/Css/CardsIns.css">
    </head>
    
    <body>
@@ -44,7 +44,7 @@ $conn->close();
   
     <label for="rules"><h3> Update rules:</h3></label>
     <br>
-    <textarea name="rules" placeholder="Write here the new rule" style="height:100px"></textarea>
+    <textarea name="rules" placeholder="Write something..." style="height:100px"></textarea>
     <br>
     <br>
     <input type="submit" name="submit" value="Update">
