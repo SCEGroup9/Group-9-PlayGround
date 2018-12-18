@@ -2,13 +2,10 @@
 include('connect.php');
   if (isset($_SESSION['username'])){
     $curr = $_SESSION['username'];
+  }
+  if (isset($_SESSION['username2'])){
     $curr2 = $_SESSION['username2'];
   }
-  if(isset($_POST['back'])){
-    session_id("session2");
-    session_unset(); 
-    session_destroy();  
-  }       
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +60,7 @@ include('connect.php');
 <script type="text/javascript">var user = "<?= $curr ?>";</script>
 <script type="text/javascript">var user2 = "<?= $curr2 ?>";</script>
 <script type="text/javascript" src="/Js/WarGameP.js"></script>
+
 </form>
 </body>
 </html>

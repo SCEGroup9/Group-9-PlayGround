@@ -1,5 +1,4 @@
 <?php
-    session_name("session1");
     session_start();
     //Connect
     $db1 = mysqli_connect("localhost","root","","project"); //Users

@@ -5,7 +5,8 @@
   var players = [[],[]];
   var firstRun = true;
   var gameover = false;
-  var r = 0;  
+  var score1 = 0;
+  var score2 = 0;  
   var fightButton = document.querySelector("#btnBattle");
   var p1 = document.querySelector("#player1 .hand");
   var p2 = document.querySelector("#player2 .hand");
@@ -81,7 +82,8 @@
       s1.innerHTML = players[0].length;
       s2.innerHTML = players[1].length;
     } else{
-        outputMessage("Game Over");
+      score1 = players[0].length> players[1].length?players[0].length:players[1].length;
+      outputMessage("Game Over");
     }
   }
 

@@ -1,8 +1,5 @@
 <?php
-session_id("session2");
-session_start();
-$db1 = mysqli_connect("localhost","root","","project"); 
-$db4 = mysqli_connect("localhost","root","","project"); 
+include('connect.php');
 
  if(isset($_POST['login'])){
     $username = $_POST['username'];
@@ -15,7 +12,6 @@ $db4 = mysqli_connect("localhost","root","","project");
         $res = mysqli_query($db1, $sql);
         $numrows = mysqli_num_rows($res);
         if($numrows == 1){
-           echo "<script>alert('Welcome $username you are now connected as user'); window.location = './cards.html';</script>";
            $_SESSION['username2'] = $username;
            $temp=time();
            $today = (date("Y-m-d",$temp));
@@ -32,6 +28,7 @@ $db4 = mysqli_connect("localhost","root","","project");
                        VALUES('$today', '1')";
                mysqli_query($db4, $sql3);
            }
+            echo "<script>alert('Welcome $username you are now connected as user'); window.location = './cards.html';</script>";
        }
        else {
            echo "<script type='text/javascript'>alert('Incorrect details were entered');</script>";

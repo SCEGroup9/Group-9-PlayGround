@@ -112,12 +112,12 @@
     if ((players[0].length < 4) || (players[1].length < 4)){
       return;
     }else {
-      for (i = 0; i < 3; i++) {
+      for (i = 0; i < 4; i++) {
         card1 = players[0].shift();
         pot = pot.concat(card1);
         p1.innerHTML += showCard(card1,(pos+i));
       }
-      for (i = 0; i < 3; i++) {
+      for (i = 0; i < 4; i++) {
         card2 = players[1].shift();
         pot = pot.concat(card2);
         p2.innerHTML += showCard(card2,(pos+i));
