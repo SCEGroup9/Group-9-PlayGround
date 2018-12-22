@@ -64,12 +64,14 @@ $conn->close();
                 <li><a href="/Html/about.html">About</a></li>
                 
                 </ul>
-<script>
-    function goBack() {
-        window.history.back();
-    }
+
 
 </head>
 </body>
 </html>
 
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
