@@ -3,57 +3,59 @@ include('connect.php');
     if (isset($_SESSION['username'])){
         $player = $_SESSION['username'];
     }
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "project";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-$result = $conn->query("SELECT sum(winnings) swin, sum(losses) slos, sum(countgames) scg, sum(points) spo FROM `precords` WHERE user='$player'");
-$row = $result->fetch_assoc()
-
+$sql = "SELECT sum(winnings) swin, sum(losses) slos, sum(countgames) scg, sum(points) spo FROM `precords` WHERE user='$player'" ; 
+$result = mysqli_query($db6, $sql); 
+$row = $result->fetch_assoc();
 ?>
 
 <html>
-<head>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
+<title>userprofile</title>
+ <link rel="stylesheet" href="/Css/profile.css">
+  <head>
+      <body>  
+<ul>
+    <li><a class="active" href="/Html/Home.html">Home</a></li>
+        <li><a onclick="goBack()">Back</a></li>
+        <li><a href="/Html/contact.php">Contact Us</a></li>
+        <li><a href="/Html/about.html">About</a></li>               
+ </ul>
 
-function drawChart() {
+<h1><?php echo $player ?> Here is Youre Game Statistics:</h1>
 
-    var data = google.visualization.arrayToDataTable([
-      ['Language', 'Rating'],
-      <?php
-      if($result->num_rows > 0){
-          while($row = $result->fetch_assoc()){
-            echo "['".$row['swin']."', ".$row['slos']."],";
-          }
-      }
+ <div class= "ab"> 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+    <?php  echo "['games you won', ".$row['swin']."],";
+            echo "['games you lost', ".$row['slos']."],";     
       ?>
-    ]);
-    
-    var options = {
-        title: 'Most Popular Programming Languages',
-        width: 900,
-        height: 500,
-    };
-    
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-    
-    chart.draw(data, options);
-}
+        ]);
+
+        var options = {
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+
+    function goBack() {
+    window.history.back();
+        }
+
 </script>
-</head>
-<body>
-    <!-- Display the pie chart -->
-    <div id="piechart"></div>
-</body>
+    </script> 
+
+    <div id="piechart" style="width: 700px; height: 500px; left:10px;"></div>
+
+
+  </body>
 </html>
+
+
