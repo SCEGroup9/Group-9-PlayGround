@@ -18,7 +18,7 @@ include('connect.php');
         else{
             $sql2 = "UPDATE `Users1` SET `rnk` = '0' WHERE `username` = '$username'";
             mysqli_query($db2, $sql2);
-            echo "<script>alert('$username is now an admin - welcome to PlayGround crow'); window.location = './Admin.html';</script>";
+            echo "<script>alert('$username is now an admin - welcome to PlayGround crew'); window.location = './Admin.html';</script>";
         }
     }
     else {

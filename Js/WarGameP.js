@@ -1,12 +1,9 @@
-  
-  var suits = ["spades", "hearts", "clubs", "diams"];
+var suits = ["spades", "hearts", "clubs", "diams"];
   var cardFace = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
   var cards = [];
   var players = [[],[]];
   var firstRun = true;
   var gameover = false;
-  var score1 = 0;
-  var score2 = 0;  
   var fightButton = document.querySelector("#btnBattle");
   var p1 = document.querySelector("#player1 .hand");
   var p2 = document.querySelector("#player2 .hand");
@@ -82,8 +79,14 @@
       s1.innerHTML = players[0].length;
       s2.innerHTML = players[1].length;
     } else{
-      score1 = players[0].length> players[1].length?players[0].length:players[1].length;
-      outputMessage("Game Over");
+      if (players[0].length>players[1].length){
+        outputMessage(user1+" wins the game!");
+        window.open("/Html/cardswin1.php");
+      }
+      else{
+        outputMessage(user2+" wins the game!");
+        window.open("/Html/cardswin2.php");
+      }
     }
   }
 
@@ -92,12 +95,12 @@
   }
 
   function checkWinner(card1, card2, pot){
-    if ((players[0].length <= 4) || (players[1].length <= 4)){
+    if ((players[0].length <= 20) || (players[1].length <= 20)){
       gameover = true;
       return;
     }
     if(card1.cardValue > card2.cardValue){
-      outputMessage(user+" wins");
+      outputMessage(user1+" wins");
       players[0] = players[0].concat(pot);
     }
     else if(card1.cardValue < card2.cardValue){

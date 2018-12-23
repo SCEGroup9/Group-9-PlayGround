@@ -80,7 +80,14 @@
       s1.innerHTML = players[0].length;
       s2.innerHTML = players[1].length;
     } else{
-        outputMessage("Game Over");
+      if (players[0].length>players[1].length){
+        outputMessage("Player1 wins the game!");
+        window.open("/Html/globrec.php");
+      }
+      else{
+        outputMessage("Player2 wins the game!");
+        window.open("/Html/globrec.php");
+      }
     }
   }
 
@@ -89,7 +96,7 @@
   }
 
   function checkWinner(card1, card2, pot){
-    if ((players[0].length <= 4) || (players[1].length <= 4)){
+    if ((players[0].length <= 5) || (players[1].length <= 5)){
       gameover = true;
       return;
     }
