@@ -10,9 +10,44 @@ include('connect.php');
 <head>
 <title>War Card Game</title>
 <link rel="stylesheet" href="/Css/WarGame2.css">
+<link rel="stylesheet" href="/Css/optionsCards.css">
+<meta charset="utf-8">
+<script type="text/javascript">
+    function Play(){
+        var myVideo = document.getElementById("music");
+        if(myVideo.paused)
+            myVideo.play();
+        else
+           myVideo.pause();
+
+    }
+</script>
 
 </head>
 <body>
+
+<script>
+    var colors = ["lightblue", "lightgreen", "lightpink","silver","white"];
+    var colorIndex = 0;
+    function changeColor() {
+        var col = document.getElementById("body");
+        if( colorIndex >= colors.length ) {
+            colorIndex = 0;
+        }
+        col.style.backgroundColor = colors[colorIndex];
+        colorIndex++;
+    }
+</script>
+<div class="dropdown">
+        <button onclick="Options()" class="dropbtn">Options</button>
+        <div id="myDropdown" class="dropdown-content">
+                <a href="#" onClick="Play();">Play/Pause Music</a>
+                <audio preload="auto" src="/music/BGM.mp3" loop="true" autobuffer id="music"></audio>
+                <body id='body'>
+                <a href="#" onClick=" changeColor();">Change Color Background</a>
+         
+        </div>
+      </div> 
   <div id="wrapper">
     <div id="message">Click "Fight" to start!</div>
     <div id="board">
@@ -52,7 +87,27 @@ include('connect.php');
         }
       </script>
     </div>
-  </div>
+
+</div>
+
+<script>
+      function Options() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      } 
+    </script>
+
 <script type="text/javascript">var user = "<?= $curr ?>";</script>
 <script type="text/javascript" src="/Js/WarGameCom.js"></script>
 </body>
