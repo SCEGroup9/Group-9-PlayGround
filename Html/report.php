@@ -15,10 +15,12 @@
         <?php  include "connect.php";
             $sql = "SELECT id, FirstName, LastName, Country, Subj FROM reports";
             $result = mysqli_query($db3, $sql);
-            if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                    echo "*" . " First Name : " . $row["FirstName"]. ", Last Name : " . $row["LastName"]. ", From : " . $row["Country"]. ", Report : ". $row["Subj"] ."<br>"."<br>";
+            if ($result->num_rows > 0) {
+                echo "<table><tr><th>First Name</th><th>Last Name</th><th>Country</th></tr>";
+                while($row =$result->fetch_assoc()) {
+                    echo "<tr><td>". $row["FirstName"]. "</td><td>". $row["LastName"]."</td><td>". $row["Country"]."<br>";
                 }
+                echo "</table>";
             } else {
                 echo "0 results";
             } 

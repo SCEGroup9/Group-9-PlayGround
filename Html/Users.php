@@ -11,31 +11,35 @@
 </ul>
 <div class="container1">
     <form action="Users.php" method="post">
-    <h2 align="center">Users database 1</h2>
+    <h2 align="center">Users Database 1</h2>
         <?php  include "connect.php";
             $sql = "SELECT FirstName, LastName, Age, Country, username, psw FROM users";
             $result = mysqli_query($db1, $sql);
-            if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                    echo "*" . " First Name : " . $row["FirstName"]. ", Last Name : " . $row["LastName"]. ", Age : " . $row["Age"]. ", From : ". $row["Country"] . ", User-Name : ". $row["username"] . ", Password : ". $row["psw"]."<br>"."<br>";
+            if ($result->num_rows > 0) {
+                echo "<table><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Country</th><th>User-Name</th><th>Password</th></tr>";
+                while($row =$result->fetch_assoc()) {
+                    echo "<tr><td>". $row["FirstName"]. "</td><td>". $row["LastName"]."</td><td>". $row["Age"]."</td><td>". $row["Country"]."</td><td>". $row["username"]."</td><td>". $row["psw"]."<br>";
                 }
+                echo "</table>";
             } else {
                 echo "0 results";
             } 
         ?>
 </div>
+
 <div class="container2">
-    <h2 align="center">Users database 2</h2>
+    <h2 align="center">Users Database 2</h2>
         <?php
             $sql = "SELECT id, username, rnk FROM users1";
             $result = mysqli_query($db2, $sql);
-            if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
+            if ($result->num_rows > 0) {
+                echo "<table><tr><th> User-Name</th><th>Rank</th></tr>";
+                while($row =$result->fetch_assoc()) {
                     if ($row["rnk"] == 0){
-                        echo "*" . " User-Name : " . $row["username"]. ", Rank : Admin "."<br>"."<br>";
+                        echo "<tr><td>". $row["username"]. "</td><td> Admin <br>";
                     }
                     else{
-                        echo "*" . " User-Name : " . $row["username"]. ", Rank : User "."<br>"."<br>";
+                        echo "<tr><td>". $row["username"]. "</td><td> User <br>";
                     }
                 }
             } else {
