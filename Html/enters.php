@@ -14,12 +14,14 @@
         <form action="report.php" method="post">
         <h2 align="center">Users entrances counter</h2>
             <?php  include("connect.php");
-                $sql = "SELECT tDate, counts FROM enters";
+                $sql = "SELECT tDate, counts FROM enters ORDER BY tdate DESC";
                 $result = mysqli_query($db4, $sql);
-                if (mysqli_num_rows($result) > 0) {
-                    while($row = mysqli_fetch_assoc($result)) {
-                        echo "*" . " Date : " . $row["tDate"]. ", Number of entrances for this day : " . $row["counts"] . "<br>"."<br>";
+                if ($result->num_rows > 0) {
+                    echo "<table><tr><th>DATE</th><th>Number Of Entrances</th></tr>";
+                    while($row =$result->fetch_assoc()) {
+                        echo "<tr><td>". $row["tDate"]. "</td><td>". $row["counts"]."<br>";
                     }
+                    echo "</table>";
                 } else {
                     echo "0 results";
                 } 
