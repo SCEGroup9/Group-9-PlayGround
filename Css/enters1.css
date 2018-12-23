@@ -59,3 +59,17 @@ li a:hover:not(.active) {
 .active {
    background-color: #258b47;
 }
+table {
+    width:100%;
+    text-align: center;    
+  }
+table tr:nth-child(even) {
+    background-color: #eee;
+  }
+table tr:nth-child(odd) {
+  background-color: #fff;
+  }
+table th {
+   background-color: black;
+    color: white;
+  }
