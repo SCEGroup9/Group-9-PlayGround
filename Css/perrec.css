@@ -48,15 +48,17 @@ ul {
     background-color: #258b47;
  }
 
-
  .filterDiv {
-    float: left;
+    
+    position: relative;
+    left: 360px;
+    top: 10px;
     background-color: #2196F3;
     color: #ffffff;
     width: 50%;
     line-height: 100px;
     text-align: center;
-    margin: 2px;
+    margin: 20px;
     display: none;
   }
   table {
