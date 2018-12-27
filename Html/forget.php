@@ -12,7 +12,7 @@
      if($numrows == 1) {
         $row = mysqli_fetch_assoc($res);
         $message = "Your password is: " . $row['psw'];
-        echo "<script type='text/javascript'>alert('$message');</script>";
+        echo "<script>alert('$message'); window.location = './LoginU.php';</script>";
     }
     else {
         echo "<script type='text/javascript'>alert('Wrong details entered');</script>";

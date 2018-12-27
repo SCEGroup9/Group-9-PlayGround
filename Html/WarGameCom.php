@@ -78,15 +78,6 @@ include('connect.php');
             window.history.back();
         }
       </script>
-      <div id="action">
-        <button id="Share" type="button" class="btn3" onclick="Share()"></button>
-      </div>
-      <script>
-        function Share() {
-            window.open("https://www.facebook.com/sharer/sharer.php?u=Home.html");
-        }
-      </script>
-    </div>
 
 </div>
 

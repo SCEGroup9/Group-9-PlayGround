@@ -84,7 +84,7 @@ body , html{
 
 .button {
     position: relative;
-    background-color: #4CAF50;
+    background-color: rgb(189, 9, 9);
     border: none;
     color: white;
     padding: 15px 32px;
@@ -94,8 +94,56 @@ body , html{
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    left:600px;
-    top:600px;
+    left:1013px;
+    top:262px;
+  }
+
+  .btn1 {
+    position: relative;
+    background-color: rgb(76, 86, 175);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    left:-100px;
+    top:60px;
+  }
+
+  .btn2 {
+    position: relative;
+    background-color: rgb(110, 15, 129);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    left:-216px;
+    top:120px;
+  }
+
+  .btn3 {
+    position: relative;
+    background-color: rgb(20, 172, 164);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    left:-335px;
+    top:180px;
   }
 
   #score{

@@ -16,9 +16,9 @@
             $sql = "SELECT id, FirstName, LastName, Country, Subj FROM reports";
             $result = mysqli_query($db3, $sql);
             if ($result->num_rows > 0) {
-                echo "<table><tr><th>First Name</th><th>Last Name</th><th>Country</th></tr>";
+                echo "<table><tr><th>First Name</th><th>Last Name</th><th>Country</th><th>Subject</th></tr>";
                 while($row =$result->fetch_assoc()) {
-                    echo "<tr><td>". $row["FirstName"]. "</td><td>". $row["LastName"]."</td><td>". $row["Country"]."<br>";
+                    echo "<tr><td>". $row["FirstName"]. "</td><td>". $row["LastName"]."</td><td>". $row["Country"]."</td><td>". $row["Subj"]."<br>";
                 }
                 echo "</table>";
             } else {

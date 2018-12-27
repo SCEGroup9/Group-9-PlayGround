@@ -15,15 +15,15 @@ body{
 }
 
 ul {
-    position: relative;
-    left: -9%;
-    top: -500px;
+    position: absolute;
+    left: -8%;
+    top: -123px;
     list-style-type: none;
     margin:137;
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    width: 22%;
+    width: 36%;
  }
  
  li {
@@ -50,3 +50,23 @@ ul {
  .active {
     background-color: #258b47;
  }
+ table {
+   width:100%;
+ }
+ table tr:nth-child(even) {
+   background-color: #eee;
+ }
+ table tr:nth-child(odd) {
+  background-color: #fff;
+ }
+ table th {
+   background-color: black;
+   color: white;
+ }
+
+ .Share{
+   background-image: url(/pic/share.png);
+   padding: 23px 110px;
+   cursor: pointer;
+ }
+ 

@@ -5,7 +5,7 @@ include('connect.php');
     }
 $sql = "SELECT sum(winnings) swin, sum(losses) slos, sum(countgames) scg, sum(points) spo FROM `precords` WHERE user='$player'" ; 
 $result = mysqli_query($db6, $sql); 
-$row = $result->fetch_assoc();
+$row = mysqli_fetch_assoc($result);
 ?>
 
 <html>
@@ -20,7 +20,7 @@ $row = $result->fetch_assoc();
         <li><a href="/Html/about.html">About</a></li>               
  </ul>
 
-<h1><?php echo $player ?> Here is Youre Game Statistics:</h1>
+<h1><?php echo $player ?> Here is Your Game Statistics:</h1>
 
  <div class= "ab"> 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

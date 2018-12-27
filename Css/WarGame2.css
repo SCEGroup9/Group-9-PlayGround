@@ -101,16 +101,3 @@
 
 }
 
-.btn3{
-  position: relative; 
-  left : 638px;
-  top:80px;
-  border-radius: 5px;
-  padding: 22px 109px;
-  color: white;
-  display: inline-flex;
-  text-align: center;
-  font-size: 1.5em;
-  text-shadow: 1px 1px #000;
-  background-image: url(/pic/share.png)
-}

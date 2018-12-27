@@ -1,22 +1,6 @@
 <html>
 <body>
 
-<style>
-table {
-  width:100%;
-}
-table tr:nth-child(even) {
-  background-color: #eee;
-}
-table tr:nth-child(odd) {
- background-color: #fff;
-}
-table th {
-  background-color: black;
-  color: white;
-}
-</style>
-
 <title>Recordsmenu</title>
  <link rel="stylesheet" href="/Css/globrec.css">
 </head>
@@ -58,20 +42,23 @@ $conn->close();
 ?> 
 </div>
 <ul>
-            <li><a class="active" href="/Html/Home.html">Home</a></li>
-                <li><a onclick="goBack()">Back</a></li>
-                <li><a href="/Html/contact.php">Contact Us</a></li>
-                <li><a href="/Html/about.html">About</a></li>
-                
-                </ul>
-
-
-</head>
-</body>
-</html>
-
+    <li><a class="active" href="/Html/Home.html">Home</a></li>
+    <li><a onclick="goBack()">Back</a></li>
+    <li><a class="Share" onclick="Share()"></a></li>
+    <li><a href="/Html/contact.php">Contact Us</a></li>
+    <li><a href="/Html/about.html">About</a></li>
+</ul>
+<script>
+    function Share() {
+        window.open("https://www.facebook.com/sharer/sharer.php?u=http://www.localhost/Html/globrec.php");
+    }
+</script>
 <script>
     function goBack() {
         window.history.back();
     }
 </script>
+</head>
+</body>
+</html>
+

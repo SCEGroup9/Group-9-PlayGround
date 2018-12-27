@@ -36,15 +36,6 @@
             window.history.back();
         }
       </script>
-      <div id="action">
-        <button id="Share" type="button" class="btn3" onclick="Share()"></button>
-      </div>
-      <script>
-        function Share() {
-            window.open("https://www.facebook.com/sharer/sharer.php?u=www.walla.co.il");
-        }
-      </script>
-    </div>
   </div>
 <script src="/Js/GuestWarGameP.js"></script>
 </body>
