@@ -3,10 +3,10 @@ include('connect.php');
     if (isset($_SESSION['username'])){
         $player = $_SESSION['username'];
     }
-    $sql = "SELECT user,gamename,points,winnings,losses,countgames FROM precords WHERE gamename='cards' and user='$player'" ; 
-    $result = mysqli_query($db6, $sql);
-    $sqll = "SELECT user,gamename,points,winnings,losses,countgames FROM precords WHERE gamename='checkers' and user='$player' ";
-    $resultt = mysqli_query($db6, $sqll);
+    $sql = "SELECT * FROM games WHERE gamename='cards' and user='$player'ORDER BY tDate DESC" ; 
+    $result = mysqli_query($db, $sql);
+    $sqll = "SELECT * FROM games WHERE gamename='checkers' and user='$player'ORDER BY tDate DESC ";
+    $resultt = mysqli_query($db, $sqll);
 ?>
 
 <html>
@@ -36,10 +36,16 @@ include('connect.php');
     <div class="filterDiv cards">
         <?php
         if ($result->num_rows > 0) {
-            echo "<table><tr><th>Game Name</th><th>Winnings</th><th>Losses</th><th>Points</th></tr>";
+            echo "<table><tr><th>Game Name</th><th>game status</th><th>Points</th><th>Date</th></tr>";
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                 echo "<tr><td>". $row["gamename"]. "</td><td>". $row["winnings"]. "</td><td>" . $row["losses"] . "</td><td>" . $row["points"] . "<br>";
+              if ($row["status"] == 1){
+                echo "<tr><td>". $row["gamename"]. "</td><td> win </td><td>". $row["points"]. "</td><td>" . $row["tDate"] . "<br>";
+                            }
+                else {
+                echo "<tr><td>". $row["gamename"]. "</td><td> loss </td><td>". $row["points"]. "</td><td>" . $row["tDate"] . "<br>";
+                }
+              
             }
          echo "</table>";
         } 
@@ -52,17 +58,23 @@ include('connect.php');
     <div class="filterDiv checkers">
         <?php
         if ($resultt->num_rows > 0) {
-            echo "<table><tr><th>Game Name</th><th>Winnings</th><th>Losses</th><th>Points</th></tr>";
-            // output data of each row
-            while($row = $resultt->fetch_assoc()) {
-                echo "<tr><td>". $row["gamename"]. "</td><td>". $row["winnings"]. "</td><td>" . $row["losses"] . "</td><td>" . $row["points"] . "<br>";
-            }
-        echo "</table>";
-        } 
-        else {
-        echo "0 results";
-        }
-        ?> 
+          echo "<table><tr><th>Game Name</th><th>game status</th><th>Points</th><th>Date</th></tr>";
+          // output data of each row
+          while($row = $resultt->fetch_assoc()) {
+            if ($row["status"] == 1){
+              echo "<tr><td>". $row["gamename"]. "</td><td> win </td><td>". $row["points"]. "</td><td>" . $row["tDate"] . "<br>";
+                          }
+              else {
+              echo "<tr><td>". $row["gamename"]. "</td><td> loss </td><td>". $row["points"]. "</td><td>" . $row["tDate"] . "<br>";
+              }
+            
+          }
+       echo "</table>";
+      } 
+      else {
+       echo "0 results";
+      }
+      ?>
     </div>
 </div>
 

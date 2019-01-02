@@ -7,5 +7,6 @@
     $db4 = mysqli_connect("localhost","root","","project"); //enters
     $db5 = mysqli_connect("localhost","root","","project"); //grecords
     $db6 = mysqli_connect("localhost","root","","project"); //precords
+    $db = mysqli_connect("localhost","root","","project"); //games
 
 ?>
