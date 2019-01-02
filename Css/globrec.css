@@ -7,66 +7,62 @@ body{
 }
 .ab {
     position: relative;
-    background-color: white;
+    background-color: #bbb;
     color: black; 
     text-align: center;
-    margin: 200px;
+    margin: 20px;
     padding: 20px;
+    width: 22%;
+    left: 500px;
 }
 
 ul {
-    position: absolute;
-    left: -8%;
-    top: -123px;
-    list-style-type: none;
-    margin:137;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    width: 36%;
- }
+   position: relative;
+   left: 1%;
+   margin-top: 30px;
+   list-style-type: none;
+   padding: 0;
+   overflow: hidden;
+   background-color: #333;
+   width: 22%;
+}
  
  li {
-    float: left;
-    border-right:1px solid #bbb;
- }
- 
- li:last-child {
-    border-right: none;
- }
- 
- li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
- }
- 
- li a:hover:not(.active) {
-    background-color: #111;
- }
- 
- .active {
-    background-color: #258b47;
- }
- table {
-   width:100%;
- }
- table tr:nth-child(even) {
-   background-color: #eee;
- }
- table tr:nth-child(odd) {
-  background-color: #fff;
- }
- table th {
-   background-color: black;
-   color: white;
- }
+   float: left;
+   border-right:1px solid #bbb;
+}
 
- .Share{
-   background-image: url(/pic/share.png);
-   padding: 23px 110px;
-   cursor: pointer;
- }
+li:last-child {
+   border-right: none;
+}
+
+li a {
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+}
+
+li a:hover:not(.active) {
+   background-color: #111;
+}
  
+.active {
+   background-color: #258b47;
+ }
+table {
+  width:100%;
+  text-align: center;
+  font-size: 150%;
+}
+table tr:nth-child(even) {
+  background-color: #eee;
+}
+table tr:nth-child(odd) {
+  background-color: #fff;
+}
+table th {
+  background-color: black;
+  color: white;
+}
