@@ -12,10 +12,14 @@
     echo "$GameData";
 ?>
 
-<h3> Points: </h3>
 <?php 
+include('connect.php');
+if (!empty($_SESSION['username'])){
+    echo "<html>";
+    echo "<h3> Points: </h3>";
     include 'CheckerInstruction.php';
     echo "$Points";
+}
 ?>
 </div>
 <ul>

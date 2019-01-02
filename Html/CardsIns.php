@@ -11,10 +11,14 @@
     echo "$GameData";
     
 ?>
-<h3> Points: </h3>
-<?php 
-    include 'CardsInstruction.php';
-    echo "$Points";
+<?php
+include('connect.php');
+    if (!empty($_SESSION['username'])){
+        echo "<html>";
+        echo "<h3> Points: </h3>";
+        include 'CardsInstruction.php';
+        echo "$Points";
+    }
 ?>
 </div>
 <ul>

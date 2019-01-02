@@ -6,6 +6,9 @@ include('connect.php');
   if (isset($_SESSION['username2'])){
     $curr2 = $_SESSION['username2'];
   }
+  else{
+    echo "<script>alert('Second player must be login before you enter the game'); window.location = './User2log.php';</script>";
+  }
 
   if(isset($_POST['back'])){
     unset($_SESSION['username2']);

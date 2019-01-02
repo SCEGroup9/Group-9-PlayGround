@@ -1,7 +1,5 @@
 <?php 
-
 include('connect.php');
-
 if(isset($_POST['register'])){
   $FirstName = $_POST['FirstName'];
   $LastName = $_POST['LastName'];
@@ -31,16 +29,25 @@ if(isset($_POST['register'])){
   if (ctype_alnum($psw)==FALSE) {
       array_push ($errors ,"Password need to contain only letters and digits\n");
   }
-  if ($psw != $pswr) {
-      array_push ($errors ,"Passwords are not matched\n");
+  if (strlen($psw) < 8) {
+      array_push ($errors ,"Password must be 8 characters long\n");
   }
+  if (!preg_match("#[0-9]+#", $psw)) {
+      array_push ($errors ,"Password must include at least one number!");
+  }
+  if (!preg_match("#[a-zA-Z]+#", $psw)) {
+      array_push ($errors ,"Password must include at least one letter!");
+  }     
+  if ($psw != $pswr) {
+    array_push ($errors ,"Passwords are not matched\n");
+  }
+
   if (empty($errors)){
-      $sql = "INSERT INTO Users(FirstName, LastName, Age, Country, username, psw, pswr) 
-                  VALUES('$FirstName', '$LastName', '$Age', '$Country', '$username', '$psw', '$pswr')";
+      $sql = "INSERT INTO Users(FirstName, LastName, Age, Country, username, psw, pswr,rnk) 
+                  VALUES('$FirstName', '$LastName', '$Age', '$Country', '$username', '$psw', '$pswr', 1)";
       mysqli_query($db1, $sql);
-      $sql1= "INSERT INTO Users1(FirstName, username, psw, rnk) VALUES ('$FirstName','$username','$psw',1)";
-      mysqli_query($db2, $sql1);
       $_SESSION['username'] = $username;
+      $_SESSION['user_level'] = 1;
       header('location: /Html/LoginU.php');
   }
   else{

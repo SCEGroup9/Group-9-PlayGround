@@ -1,3 +1,10 @@
+<?php
+ include "connect.php";
+
+ if (isset($_SESSION['user_level']) && $_SESSION['user_level'] == 0){
+
+?>
+
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,14 +18,14 @@
 </ul>
 <div class="container">
     <form action="report.php" method="post">
-    <h2 align="center">Users reports</h2>
-        <?php  include "connect.php";
-            $sql = "SELECT id, FirstName, LastName, Country, Subj FROM reports";
+    <h2 align="center">Users Reports</h2>
+        <?php 
+            $sql = "SELECT id, FirstName, LastName, Email, Country, Subj FROM reports";
             $result = mysqli_query($db3, $sql);
             if ($result->num_rows > 0) {
-                echo "<table><tr><th>First Name</th><th>Last Name</th><th>Country</th><th>Subject</th></tr>";
+                echo "<table><tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Country</th><th>Subject</th></tr>";
                 while($row =$result->fetch_assoc()) {
-                    echo "<tr><td>". $row["FirstName"]. "</td><td>". $row["LastName"]."</td><td>". $row["Country"]."</td><td>". $row["Subj"]."<br>";
+                    echo "<tr><td>". $row["FirstName"]. "</td><td>". $row["LastName"]."</td><td>". $row["Email"]."</td><td>". $row["Country"]."</td><td>". $row["Subj"]."<br>";
                 }
                 echo "</table>";
             } else {
@@ -35,3 +42,11 @@
 </head>
 </body>
 </html>
+
+<?php
+
+} else {
+    echo "<script>alert('Access denied, only administrators with appropriate permission can access this page'); window.location = './Home.html';</script>";
+}
+
+?>

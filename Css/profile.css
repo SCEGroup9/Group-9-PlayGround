@@ -9,7 +9,7 @@ body{
 ul {
    position: relative;
    left: 1%;
-   margin-top: 30px;
+   margin-top: 20px;
    list-style-type: none;
    padding: 0;
    overflow: hidden;
@@ -41,9 +41,11 @@ li a:hover:not(.active) {
  .active {
     background-color: #258b47;
  }
-.piechart
+.p1
 {
-    background-color: #258b47;
+   position: relative;
+   left: 300px;
+   top: -20px;
 }
 h1{
     position: relative;
@@ -66,8 +68,8 @@ p{
  }
 
  h2{
-   position: relative;
+   position: absolute;
    text-align: center;
-   margin-top: 200px;
-
+   left: 800px;
+   top: 400px;
 }

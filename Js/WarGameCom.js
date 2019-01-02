@@ -85,7 +85,7 @@
       }
       else{
         outputMessage("The computer wins the game!");
-        window.open("/Html/globrec.php");
+        window.open("/Html/cardlossC.php");
       }
     }
   }
@@ -95,7 +95,7 @@
   }
 
   function checkWinner(card1, card2, pot){
-    if ((players[0].length <= 5) || (players[1].length <= 5)){
+    if ((players[0].length <= 20) || (players[1].length <= 20)){
       gameover = true;
       return;
     }

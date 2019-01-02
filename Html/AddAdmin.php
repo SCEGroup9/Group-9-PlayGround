@@ -1,6 +1,9 @@
 <?php
 include('connect.php');
 
+if (isset($_SESSION['user_level']) && $_SESSION['user_level'] == 0){
+
+
  if(isset($_POST['add'])){
     $FirstName = $_POST['FirstName'];
     $LastName = $_POST['LastName'];
@@ -9,15 +12,13 @@ include('connect.php');
     $res = mysqli_query($db1, $sql);
     $row = mysqli_num_rows($res);
     if($row == 1){
-        $sql1 = "SELECT rnk FROM `users1` WHERE `FirstName` = '$FirstName' AND  `username` = '$username'";;
-        $res1 = mysqli_query($db2, $sql1);
-        $row1 = mysqli_fetch_assoc($res1);
-        if ($row1['rnk'] == 0){
+        $result = mysqli_fetch_assoc($res);
+        if ($result['rnk'] == 0){
             echo "<script type='text/javascript'>alert('$username is already Admin');</script>";
         }
         else{
-            $sql2 = "UPDATE `Users1` SET `rnk` = '0' WHERE `username` = '$username'";
-            mysqli_query($db2, $sql2);
+            $sql = "UPDATE `users` SET `rnk` = '0' WHERE `username` = '$username'";
+            mysqli_query($db1, $sql);
             echo "<script>alert('$username is now an admin - welcome to PlayGround crew'); window.location = './Admin.html';</script>";
         }
     }
@@ -57,9 +58,17 @@ include('connect.php');
         </form>
         <ul>
             <li><a class="active" href="/Html/Home.html">Home</a></li>
-            <li><a href="/Html/Admin.html">Back</a></li>
+            <li><a href="/Html/Users.php">Back</a></li>
         </ul>
         </div>
         </div>    
         </div>
 </html>
+
+<?php
+
+} else {
+    echo "<script>alert('Access denied, only administrators with appropriate permission can access this page'); window.location = './Home.html';</script>";
+}
+
+?>

@@ -48,38 +48,30 @@ $rrow = $rresult->fetch_assoc();
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
-
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-    <?php  echo "['games you won', ".$row['swin']."],";
+          <?php echo "['games you won', ".$row['swin']."],";
             echo "['games you lost', ".$row['slos']."],";     
-      ?>
-        ]);
-
+          ?>
+          ]);
         var options = {
         };
-
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
         chart.draw(data, options);
       }
 
-    function goBack() {
-    window.history.back();
-        }
-
-</script>
-    </script> 
-
-    <div id="piechart" style="width: 700px; height:500px; "></div>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+    <div class = "p1" id="piechart" style="width: 700px; height:500px; "></div>
 </div>
 <div class="column">
         <h2>Total Cards Score: <?php echo $roww['cardpoints'] ?></br>
          Total Checkers Score:<?php echo $rrow['checkerspoints'] ?></h2>
-  </div>
 </div>
-
-  </body>
+</div>
+</body>
 </html>

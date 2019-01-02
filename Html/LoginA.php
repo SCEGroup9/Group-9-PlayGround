@@ -4,12 +4,13 @@
  if(isset($_POST['login'])){
      $username = $_POST['username'];
      $psw = $_POST['psw'];
-     $sql = "SELECT * FROM `Users1` WHERE `username` = '$username' AND `psw` = '$psw' AND `rnk` = '0'";
+     $sql = "SELECT * FROM `Users` WHERE `username` = '$username' AND `psw` = '$psw' AND `rnk` = '0'";
      $res = mysqli_query($db1, $sql);
      $numrows = mysqli_num_rows($res);
      if($numrows == 1){
-        echo "<script>alert('Welcome $username you are now connected as admin'); window.location = './Admin.html';</script>";
+        echo "<script>alert('Welcome $username you are now connected as admin'); window.location = './Admin.php';</script>";
         $_SESSION['username'] = $username;
+        $_SESSION['user_level'] = 0;
         $temp=time();
         $today = (date("Y-m-d",$temp));
         $sql1 = "SELECT * FROM `enters` WHERE id = (SELECT max(id) FROM enters)";

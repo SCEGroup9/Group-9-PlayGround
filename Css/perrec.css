@@ -7,15 +7,15 @@ body{
 }
 .ab {
     position: relative;
-    margin-top: 20px;;
+    top: 40px;
     text-align: center;
     padding: 20px;
 }
 
 ul {
-    position: relative;
-    left: 1%;
-    margin-top: 30px;
+    position: absolute;
+    left: 5px;
+    top: -50px;
     list-style-type: none;
     padding: 0;
     overflow: hidden;

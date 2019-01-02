@@ -1,3 +1,9 @@
+<?php
+ include "connect.php";
+
+ if (isset($_SESSION['user_level']) && $_SESSION['user_level'] == 0){
+
+?>
 
 <html>
     <head>
@@ -13,7 +19,7 @@
     <div class="container">
         <form action="report.php" method="post">
         <h2 align="center">Users entrances counter</h2>
-            <?php  include("connect.php");
+            <?php
                 $sql = "SELECT tDate, counts FROM enters ORDER BY tdate DESC";
                 $result = mysqli_query($db4, $sql);
                 if ($result->num_rows > 0) {
@@ -37,3 +43,10 @@
     </body>
     </html>
     
+<?php
+
+} else {
+    echo "<script>alert('Access denied, only administrators with appropriate permission can access this page'); window.location = './Home.html';</script>";
+}
+
+?>

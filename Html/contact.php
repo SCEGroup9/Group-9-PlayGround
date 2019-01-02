@@ -4,11 +4,12 @@
  if(isset($_POST['submit'])){
     $FirstName	 = $_POST['FirstName'];
     $LastName = $_POST['LastName'];
+    $Email = $_POST['Email'];
     $Country = $_POST['Country'];
     $Subj = $_POST['Subj'];
-    $sql3= "INSERT INTO reports (FirstName, LastName, Country, Subj) VALUES ('$FirstName','$LastName','$Country','$Subj')";
-    mysqli_query($db3, $sql3);
-    echo "<script type='text/javascript'>alert('Thanks for your report');</script>";
+    $sql= "INSERT INTO reports (FirstName, LastName , Email, Country, Subj) VALUES ('$FirstName','$LastName', '$Email', '$Country','$Subj')";
+    mysqli_query($db3, $sql);
+    echo "<script type='text/javascript'>alert('Thank you for your report');</script>";
 }
 ?>
 
@@ -26,11 +27,14 @@
     <label for="lname">Last Name</label>
     <input type="text" id="lname" name="LastName" placeholder="Last Name" required>
 
+    <label for="email">Email</label>
+    <input type="email" id="Email" name="Email" placeholder="Email" required>
+
     <label for="country">Country</label>
     <input type="text" id="countrt" name="Country" placeholder="Country" required>
     
     <label for="subject">Subject</label>
-    <textarea id="subject" name="Subj" placeholder="Write something..." style="height:200px"></textarea>
+    <textarea id="subject" name="Subj" placeholder="Write something..." style="height:125px"></textarea required>
 
     <input type="submit" name="submit" value="Submit">
   </form>

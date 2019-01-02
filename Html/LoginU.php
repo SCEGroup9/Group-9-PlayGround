@@ -2,7 +2,7 @@
 include('connect.php');
 
  if (!empty($_SESSION['username'])){
-    header('Location: /Html/Cgame.html');
+    header('Location: /Html/Cgame.php');
  }
  else if(isset($_POST['login'])){
      $username = $_POST['username']; 
@@ -11,8 +11,15 @@ include('connect.php');
      $res = mysqli_query($db1, $sql);
      $numrows = mysqli_num_rows($res);
      if($numrows == 1){
-        echo "<script>alert('Welcome $username you are now connected as user'); window.location = './Cgame.html';</script>";
+        echo "<script>alert('Welcome $username you are now connected as user'); window.location = './Cgame.php';</script>";
+        $rows = mysqli_fetch_assoc($res);
         $_SESSION['username'] = $username;
+        if ($rows['rnk']==0){
+            $_SESSION['user_level'] = 0;
+        }
+        else{
+            $_SESSION['user_level'] = 1;
+        }
         $temp=time();
         $today = (date("Y-m-d",$temp));
         $sql1 = "SELECT * FROM `enters` WHERE id = (SELECT max(id) FROM enters)";

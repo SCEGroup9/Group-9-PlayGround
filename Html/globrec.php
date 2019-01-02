@@ -16,12 +16,15 @@ include('connect.php');
 <ul>
     <li><a class="active" href="/Html/Home.html">Home</a></li>
     <li><a onclick="goBack()">Back</a></li>
+    <li><a class="Share" onclick="Share()"></a></li>
     <li><a href="/Html/contact.php">Contact Us</a></li>
     <li><a href="/Html/about.html">About</a></li>            
  </ul>
-
-
-
+ <script>
+    function Share() {
+        window.open("https://www.facebook.com/sharer/sharer.php?u=http://www.localhost/Html/globrec.php");
+    }
+</script>
 <div class= "ab">
 <h1>Top 10 Players!</h1>
 
@@ -39,18 +42,11 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-
-
-
 ?> 
 </div>
-
-
-
 </head>
 </body>
 </html>
-
 <script>
     function goBack() {
         window.history.back();

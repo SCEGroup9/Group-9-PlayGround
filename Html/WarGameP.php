@@ -6,8 +6,11 @@ include('connect.php');
   if (isset($_SESSION['username2'])){
     $curr2 = $_SESSION['username2'];
   }
+  else{
+    echo "<script>alert('Second player must be login before you enter the game'); window.location = './User2log.php';</script>";
+  }
 
-  if(isset($_POST['back'])){
+  if(isset($_POST['Back'])){
     unset($_SESSION['username2']);
   }
 ?>
@@ -78,8 +81,8 @@ include('connect.php');
             location.reload();
         }
         </script>
-      <div id="action">
-        <button id="Back" type="button" class="btn2" name="back" onclick="goBack()">Back</button>
+      <div>
+        <button id="Back" type="button" class="btn2" name="Back" onclick="goBack()">Back</button>
       </div>
       <script>
         function goBack() {

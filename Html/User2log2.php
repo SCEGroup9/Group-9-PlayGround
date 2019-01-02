@@ -28,7 +28,7 @@ include('connect.php');
                        VALUES('$today', '1')";
                mysqli_query($db4, $sql3);
            }
-            echo "<script>alert('Welcome $username you are now connected as user'); window.location = './checker.html';</script>";
+            echo "<script>alert('Welcome $username you are now connected as user'); window.location = './checker.php';</script>";
        }
        else {
            echo "<script type='text/javascript'>alert('Incorrect details were entered');</script>";

@@ -1,0 +1,123 @@
+body{
+    background-image: url(/pic/login.jpg);
+    height: 70%;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-page{
+    width: 360px;
+    padding: 20% 0 0;
+    margin: auto;
+}
+
+.form{
+    position: absolute;
+    left: 400px;
+    top: 177px;
+    bottom: 5px;
+    z-index: 5;
+    border-radius: 50%;
+    background-image: url(/pic/play2.png);
+    width: 630px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+}
+
+.button1 {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 50px 90px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 36px;
+    margin: 9px 2px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button2 {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 50px 70px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 36px;
+    margin: 9px 2px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-image: url(/pic/cards2.jpg); 
+    color: red;
+    border: 2px solid black;
+    text-underline-position: left;
+}
+
+.button1:hover {
+    background-color: rgb(11, 12, 11);
+    color: rgb(241, 148, 148);
+}
+
+.button2 {
+    background-image: url(/pic/checker2.png); 
+    color: red; 
+    border: 2px solid black;
+}
+
+.button2:hover {
+    background-color: rgb(11, 12, 11);
+    color: rgb(241, 148, 148);
+}
+a{
+    color: #258b47;
+    font-size: 18px;
+}
+
+ul {
+   position: relative;
+   left:-69%;
+   top:-468px;
+   list-style-type: none;
+   width: 357px;
+   padding: 0;
+   overflow: hidden;
+   background-color: #333;
+}
+
+li {
+   float: left;
+   border-right:1px solid #bbb;
+}
+
+li:last-child {
+   border-right: none;
+}
+
+li a {
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+}
+
+li a:hover {
+   background-color: #111;
+}
+
+.active {
+   background-color: #258b47;
+}
+
+.logout{
+   background-color: #990202;
+}

@@ -1,22 +1,18 @@
 <?php
  include "connect.php";
 
- if(isset($_POST['delete'])){
+ if (isset($_SESSION['user_level']) && ($_SESSION['user_level'] == 0 || $_SESSION['user_level'] == 1)){
 
+ if(isset($_POST['delete'])){
      $username = $_POST['username'];
      $psw = $_POST['psw'];
      $pswr = $_POST['pswr'];
-     $sql1 = "SELECT * FROM `Users` WHERE `username` = '$username' AND `psw` = '$psw' AND `psw` = '$pswr'";
-     $res1 = mysqli_query($db1, $sql1);
-     $sql2 = "SELECT * FROM `Users1` WHERE `username` = '$username' AND `psw` = '$psw'";
-     $res2 = mysqli_query($db2, $sql2);
-     $numrows1 = mysqli_num_rows($res1);
-     $numrows2 = mysqli_num_rows($res2);
-     if($numrows1 == 1 and $numrows2 == 1) {
-        $del1 = "DELETE FROM `Users` WHERE `username` = '$username' AND `psw` = '$psw' AND `pswr` = '$pswr'";
-        mysqli_query($db1, $del1);
-        $del2 = "DELETE FROM `Users1` WHERE `username` = '$username' AND `psw` = '$psw'";
-        mysqli_query($db2, $del2);
+     $sql = "SELECT * FROM `Users` WHERE `username` = '$username' AND `psw` = '$psw' AND `psw` = '$pswr'";
+     $res = mysqli_query($db1, $sql);
+     $numrows = mysqli_num_rows($res);
+     if($numrows == 1) {
+        $del = "DELETE FROM `Users` WHERE `username` = '$username' AND `psw` = '$psw' AND `pswr` = '$pswr'";
+        mysqli_query($db1, $del);
         echo "<script>alert('Successfully deleted'); window.location = './Home.html';</script>";
     }
     else {
@@ -69,3 +65,11 @@
     </body>
 </head>
 </html>
+
+<?php
+
+} else {
+    echo "<script>alert('Access denied, only administrators and registered users with appropriate permission can access this page'); window.location = './Home.html';</script>";
+}
+
+?>

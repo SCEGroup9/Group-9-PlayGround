@@ -1,3 +1,10 @@
+<?php
+ include("connect.php");
+
+ if (isset($_SESSION['user_level']) && $_SESSION['user_level'] == 0){
+
+?>
+
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,40 +15,27 @@
     <li><a class="active" href="/Html/Home.html">Home</a></li>
     <li><a onclick="goBack()">Back</a></li>
     <li><a href="/Html/AddAdmin.php">Add Admin</a></li>
+    <li><a href="/Html/reg.php">Add User</a></li>
 </ul>
 <div class="container1">
     <form action="Users.php" method="post">
-    <h2 align="center">Users Database 1</h2>
-        <?php  include "connect.php";
-            $sql = "SELECT FirstName, LastName, Age, Country, username, psw FROM users";
+    <h2 align="center">Users Database</h2>
+        <?php
+            $sql = "SELECT FirstName, LastName, Age, Country, username, psw, rnk FROM users";
             $result = mysqli_query($db1, $sql);
             if ($result->num_rows > 0) {
-                echo "<table><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Country</th><th>User-Name</th><th>Password</th></tr>";
+                echo "<table><tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Country</th><th>User-Name</th><th>Password</th><th>Rank</th></tr>";
                 while($row =$result->fetch_assoc()) {
-                    echo "<tr><td>". $row["FirstName"]. "</td><td>". $row["LastName"]."</td><td>". $row["Age"]."</td><td>". $row["Country"]."</td><td>". $row["username"]."</td><td>". $row["psw"]."<br>";
+                    $rank;
+                    if ($row['rnk']==0){
+                        $rank = "Admin";
+                    }
+                    else {
+                        $rank = "User";
+                    }
+                    echo "<tr><td>". $row["FirstName"]. "</td><td>". $row["LastName"]."</td><td>". $row["Age"]."</td><td>". $row["Country"]."</td><td>". $row["username"]."</td><td>". $row["psw"]."</td><td>". $rank."<br>";
                 }
                 echo "</table>";
-            } else {
-                echo "0 results";
-            } 
-        ?>
-</div>
-
-<div class="container2">
-    <h2 align="center">Users Database 2</h2>
-        <?php
-            $sql = "SELECT id, username, rnk FROM users1";
-            $result = mysqli_query($db2, $sql);
-            if ($result->num_rows > 0) {
-                echo "<table><tr><th> User-Name</th><th>Rank</th></tr>";
-                while($row =$result->fetch_assoc()) {
-                    if ($row["rnk"] == 0){
-                        echo "<tr><td>". $row["username"]. "</td><td> Admin <br>";
-                    }
-                    else{
-                        echo "<tr><td>". $row["username"]. "</td><td> User <br>";
-                    }
-                }
             } else {
                 echo "0 results";
             } 
@@ -56,3 +50,11 @@
 </head>
 </body>
 </html>
+
+<?php
+
+} else {
+    echo "<script>alert('Access denied, only administrators with appropriate permission can access this page'); window.location = './Home.html';</script>";
+}
+
+?>

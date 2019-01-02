@@ -15,15 +15,16 @@ include('connect.php');
 </head>
 <body>
 
+<div class= "ab">
+
+<div>
 <ul>
     <li><a class="active" href="/Html/Home.html">Home</a></li>
-        <li><a onclick="goBack()">Back</a></li>
-        <li><a href="/Html/contact.php">Contact Us</a></li>
-        <li><a href="/Html/about.html">About</a></li>               
+    <li><a onclick="goBack()">Back</a></li>
+    <li><a href="/Html/contact.php">Contact Us</a></li>
+    <li><a href="/Html/about.html">About</a></li>               
  </ul>
-
-
-<div class= "ab">
+</div>
 
 <div id="myBtnContainer">
   <button class="btn active" onclick="filterSelection('all')"> Show all</button>
@@ -31,19 +32,18 @@ include('connect.php');
   <button class="btn" onclick="filterSelection('checkers')"> Checkers</button>  
 </div>
 
-
 <div class="container">
     <div class="filterDiv cards">
         <?php
         if ($result->num_rows > 0) {
-            echo "<table><tr><th>Game Name</th><th>game status</th><th>Points</th><th>Date</th></tr>";
+            echo "<table><tr><th>Game Name</th><th>Enemy</th><th>game status</th><th>Points</th><th>Date</th></tr>";
             // output data of each row
             while($row = $result->fetch_assoc()) {
-              if ($row["status"] == 1){
-                echo "<tr><td>". $row["gamename"]. "</td><td> win </td><td>". $row["points"]. "</td><td>" . $row["tDate"] . "<br>";
+              if ($row["Gstatus"] == 1){
+                echo "<tr><td>". $row["gamename"]. "</td><td>" . $row["enemy"]. "</td><td> win </td><td>". $row["points"]. "</td><td>" . $row["tDate"] . "<br>";
                             }
                 else {
-                echo "<tr><td>". $row["gamename"]. "</td><td> loss </td><td>". $row["points"]. "</td><td>" . $row["tDate"] . "<br>";
+                echo "<tr><td>". $row["gamename"]. "</td><td>" . $row["enemy"]. "</td><td> loss </td><td>". $row["points"]. "</td><td>" . $row["tDate"] . "<br>";
                 }
               
             }
@@ -58,14 +58,14 @@ include('connect.php');
     <div class="filterDiv checkers">
         <?php
         if ($resultt->num_rows > 0) {
-          echo "<table><tr><th>Game Name</th><th>game status</th><th>Points</th><th>Date</th></tr>";
+          echo "<table><tr><th>Game Name</th><th>Enemy</th><th>game status</th><th>Points</th><th>Date</th></tr>";
           // output data of each row
           while($row = $resultt->fetch_assoc()) {
-            if ($row["status"] == 1){
-              echo "<tr><td>". $row["gamename"]. "</td><td> win </td><td>". $row["points"]. "</td><td>" . $row["tDate"] . "<br>";
+            if ($row["Gstatus"] == 1){
+              echo "<tr><td>". $row["gamename"]. "</td><td>" . $row["enemy"]. "</td><td> win </td><td>". $row["points"]. "</td><td>" . $row["tDate"] . "<br>";
                           }
               else {
-              echo "<tr><td>". $row["gamename"]. "</td><td> loss </td><td>". $row["points"]. "</td><td>" . $row["tDate"] . "<br>";
+              echo "<tr><td>". $row["gamename"]. "</td><td>" . $row["enemy"]. "</td><td> loss </td><td>". $row["points"]. "</td><td>" . $row["tDate"] . "<br>";
               }
             
           }

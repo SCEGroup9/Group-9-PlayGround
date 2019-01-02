@@ -1,8 +1,9 @@
 <?php
  include "connect.php";
 
- if(isset($_POST['restore'])){
+ if (isset($_SESSION['user_level']) && ($_SESSION['user_level'] == 0 || $_SESSION['user_level'] == 1)){
 
+ if(isset($_POST['restore'])){
      $username = $_POST['username'];
      $age = $_POST['age'];
      $Country = $_POST['Country'];
@@ -60,3 +61,11 @@
     </body>
 </head>
 </html>
+
+<?php
+
+} else {
+    echo "<script>alert('Access denied, only administrators and registered users with appropriate permission can access this page'); window.location = './Home.html';</script>";
+}
+
+?>

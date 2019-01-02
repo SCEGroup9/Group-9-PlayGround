@@ -10,23 +10,14 @@ body {
 
 .container1 {
     position: relative;
-    top:40px;
-    left: 60px;
-    width: 55%;
+    top:80px;
+    left: 270px;
+    width: 65%;
     border-radius: 5px;
     background-image: url(/pic/contact2.jpg);
     padding: 20px;
 }
 
-.container2 {
-    position: absolute;
-    top:115px;
-    left: 980px;
-    width: 30%;
-    border-radius: 5px;
-    background-image: url(/pic/contact2.jpg);
-    padding: 20px;
-}
 
 a{
     color: #258b47;
@@ -38,7 +29,7 @@ ul {
    left:0.5%;
    top:10px;
    list-style-type: none;
-   width: 275px;
+   width: 383px;
    padding: 0;
    overflow: hidden;
    background-color: #333;

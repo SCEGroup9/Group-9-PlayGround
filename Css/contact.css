@@ -7,13 +7,13 @@ body {
 }
 * {box-sizing: border-box;}
 
-input[type=text], select, textarea {
+input, select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-top: 6px;
-    margin-bottom: 16px;
+    margin-bottom: 15px;
 }
 
 input[type=submit] {
@@ -34,8 +34,8 @@ input[type=submit]:hover {
     top:80px;
     left: 10px;
     width: 50%;
-    border-radius: 5px;
-    background-image: url(/pic/contact2.jpg);
+    border-radius: 0px;
+    background: rgb(226, 226, 226);
     padding: 20px;
 }
 
@@ -45,9 +45,9 @@ a{
 }
 
 ul {
-   position: relative;
-   left:0.5%;
-   top:-590px;
+   position: absolute;
+   left:15px;
+   top:0px;
    list-style-type: none;
    width: 235px;
    padding: 0;

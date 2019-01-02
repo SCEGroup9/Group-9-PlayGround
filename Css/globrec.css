@@ -11,20 +11,21 @@ body{
     color: black; 
     text-align: center;
     margin: 20px;
+    top: 60px;
     padding: 20px;
     width: 22%;
     left: 500px;
 }
 
 ul {
-   position: relative;
-   left: 1%;
-   margin-top: 30px;
+   position: absolute;
+   left: 15px;
+   top: 0px;
    list-style-type: none;
    padding: 0;
    overflow: hidden;
    background-color: #333;
-   width: 22%;
+   width: 36%;
 }
  
  li {
@@ -65,4 +66,9 @@ table tr:nth-child(odd) {
 table th {
   background-color: black;
   color: white;
+}
+.Share{
+  background-image: url(/pic/share.png);
+  padding: 23px 110px;
+  cursor: pointer;
 }
